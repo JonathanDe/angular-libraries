@@ -26,6 +26,10 @@
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     }
 
+    function __metadata(metadataKey, metadataValue) {
+        if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+    }
+
     var SuperLibComponet = /** @class */ (function () {
         function SuperLibComponet() {
         }
@@ -38,18 +42,35 @@
         return SuperLibComponet;
     }());
 
+    var CoolComponentComponent = /** @class */ (function () {
+        function CoolComponentComponent() {
+        }
+        CoolComponentComponent.prototype.ngOnInit = function () {
+        };
+        CoolComponentComponent = __decorate([
+            core.Component({
+                selector: 'app-cool-component',
+                template: "<p>\n  cool-component works!\n</p>\n",
+                styles: [""]
+            }),
+            __metadata("design:paramtypes", [])
+        ], CoolComponentComponent);
+        return CoolComponentComponent;
+    }());
+
     var SuperLibModule = /** @class */ (function () {
         function SuperLibModule() {
         }
         SuperLibModule = __decorate([
             core.NgModule({
-                exports: [SuperLibComponet],
-                declarations: [SuperLibComponet],
+                exports: [SuperLibComponet, CoolComponentComponent],
+                declarations: [SuperLibComponet, CoolComponentComponent],
             })
         ], SuperLibModule);
         return SuperLibModule;
     }());
 
+    exports.CoolComponentComponent = CoolComponentComponent;
     exports.SuperLibComponet = SuperLibComponet;
     exports.SuperLibModule = SuperLibModule;
 
